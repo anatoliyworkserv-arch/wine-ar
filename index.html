@@ -8,7 +8,6 @@
 
 <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-
 <style>
 
 body{
@@ -44,14 +43,20 @@ device-orientation-permission-ui="enabled:false"
 
 >
 
-<a-assets timeout="10000">
+<a-assets>
 
 <video
+
 id="video"
+
 src="./video.mp4"
+
 loop="false"
+
 playsinline
+
 webkit-playsinline
+
 crossorigin="anonymous"
 
 ></video>
@@ -72,14 +77,10 @@ width="1"
 
 height="1.77"
 
-position="0 0 0.05"
-
-rotation="0 0 0"
-
-material="shader: flat"
+position="0 0 0"
 
 ></a-video>
-  
+
 </a-entity>
 
 </a-scene>
@@ -96,18 +97,7 @@ target.addEventListener("targetFound",()=>{
 
 video.currentTime=0;
 
-target.addEventListener("targetFound", async ()=>{
-
-video.currentTime = 0;
-
-try {
- await video.play();
- console.log("video started");
-} catch(e) {
- console.log(e);
-}
-
-});
+video.play();
 
 });
 
@@ -122,5 +112,4 @@ video.pause();
 </body>
 
 </html>
-
 
